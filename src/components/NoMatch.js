@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Home = () => (
+const NoMatch = () => (
   <div>
     <h2>Wrong Url</h2>
   </div>
 );
 
-export default Home;
+export default NoMatch;

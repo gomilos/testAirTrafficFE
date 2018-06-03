@@ -1,7 +1,7 @@
 import React from 'react';
 import GetGeolocation from '../api/geolocation'
 import api from '../api/api'
-
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
   constructor(props) {
@@ -62,6 +62,8 @@ class Home extends React.Component {
       <div>Hello, 
       <h2>{message}  
       </h2>
+      <p>A</p>
+      <Link to={`/AirFlite/7869131`}>7869131</Link>
     </div>
   )
   }
