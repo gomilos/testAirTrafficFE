@@ -1,0 +1,51 @@
+{
+  "name": "quantox-airtraffictest",
+  "version": "1.0.0",
+  "description": "USe for test AiRtraffic API ",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack-dev.config.js",
+    "build": "webpack --config ./webpack-prod.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gomilos/testAirTrafficFE.git"
+  },
+  "keywords": [
+    "ReactJS",
+    "AirTraffic"
+  ],
+  "author": "Goran MIlosavljevic",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/gomilos/testAirTrafficFE/issues"
+  },
+  "homepage": "https://github.com/gomilos/testAirTrafficFE#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "promised-location": "^1.0.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-router-dom": "^4.2.2",
+    "wheres-here": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
+    "react-hot-loader": "^4.2.0",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
