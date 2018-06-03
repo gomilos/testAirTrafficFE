@@ -6,12 +6,20 @@ import { Link } from 'react-router-dom'
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       aircraftListPerGeoLocation:[],
-      shareGeolocation:true
+      shareGeolocation:true,
+
     }
   }
  
+  handleChange(event) {
+    debugger
+    let selectedItem = event.target.value 
+    this.props.history.push('/AirFlite/'+selectedItem)
+    //this.setState({selectedAF: event.target.value});
+  }
 
   componentDidUpdate(){
     console.log('componentDidUpdate')
@@ -26,7 +34,7 @@ class Home extends React.Component {
       if (confirm("Do you agree to share your location!")) {
         api.getVirtualRadarQueryData("").then(response => {
           console.log(JSON.stringify(response))
-          debugger
+          
           let aircraftListPerGeoLocation = [...this.state.aircraftListPerGeoLocation, ...response]
           
           this.setState({aircraftListPerGeoLocation});
@@ -56,14 +64,25 @@ class Home extends React.Component {
       }
 
   render() {
-    debugger
-    let message = !this.state.aircraftListPerGeoLocation.length > 0 || !this.state.shareGeolocation ?  "Don't have geolocation":"Have geolocation"
+    
+    let message = "Don't have geolocation"
+    let selectList = ""
+    let link = (<Link to={`/AirFlite/7869131`}>7869131</Link>)
+    if(this.state.aircraftListPerGeoLocation.length > 0 ){
+      message = "Have geolocation"
+      selectList = (<select onChange={this.handleChange}>{this.state.aircraftListPerGeoLocation.map(item => 
+        {
+          debugger
+          
+          return <option key={item.Id} value={`${item.Id}/${item.Man}/${item.Mdl}/${item.To}/${item.From}`}>{`${item.Alt} ${item.Call}`}</option>
+        }        
+      )}</select>)
+    }
     return (
       <div>Hello, 
-      <h2>{message}  
-      </h2>
-      <p>A</p>
-      <Link to={`/AirFlite/7869131`}>7869131</Link>
+      <h2>{message}</h2>
+      <div>{selectList}</div>
+      
     </div>
   )
   }
