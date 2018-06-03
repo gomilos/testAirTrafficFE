@@ -10,7 +10,7 @@ const Main = (props) => {
     <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/Home" component={Home} />          
-        <Route path="/AirFlite/:id" component={AirFliteDetails}/>   
+        <Route path="/AirFlite/:id/:Man/:Mdl/:To/:From" component={AirFliteDetails}/>   
         <Route component={NoMatch}/>
         </Switch>
     </div>

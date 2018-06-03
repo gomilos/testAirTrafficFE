@@ -19,12 +19,19 @@ const getAvaliableFlites = (query) => {
   console.log(`Geolocation LAT ${lat}, LONG ${long}`)
     return new Promise(function(resolve, reject) {
         setTimeout(function(){
-            let acItem = getNearestGL(lat,long)
-            if(acItem.length == 0){               
+            let altItems = getNearestGL(lat,long)
+            if(altItems.length == 0){               
                 console.log('Get fake geolocation')
-                acItem =fakeAircraftList.acList.slice(1,10)
+                altItems =fakeAircraftList.acList.filter(item =>
+                    
+                    {
+                        console.log(item.Id+  '$$'+item.Alt + '$$' +item.Call)
+                        return item.Id && item.Alt && item.Alt != 0 && item.Call && item.Call != ""
+                    }
+                    ).slice(1,10)
+                debugger
             }
-            resolve(acItem)
+            resolve(altItems)
         }, 250);
     })
   }
