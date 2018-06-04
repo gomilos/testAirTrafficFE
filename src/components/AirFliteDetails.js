@@ -10,11 +10,10 @@ const AirFliteDetails = (props) => {
 
         <div >
           <ul>
-          <li>ID: {id}</li>
-          <li>Man: {Man}</li>
-          <li>Mdl: {Mdl}</li>
-          <li>To: {To}</li>
-          <li>From: {From}</li>
+          <li>manufacturer’s name: {Man}</li>
+          <li>description of the aircraft’s model: {Mdl}</li>
+          <li>Destination To: {To}</li>
+          <li>Destination From: {From}</li>
           <li><img src={logoUrl} alt={Op} title={Op}/></li>
           </ul>
         </div>
