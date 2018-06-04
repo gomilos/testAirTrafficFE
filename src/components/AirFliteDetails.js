@@ -15,7 +15,7 @@ const AirFliteDetails = (props) => {
           <li>Mdl: {Mdl}</li>
           <li>To: {To}</li>
           <li>From: {From}</li>
-          <li><img src={logoUrl} /></li>
+          <li><img src={logoUrl} alt={Op} title={Op}/></li>
           </ul>
         </div>
    
