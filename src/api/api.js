@@ -10,7 +10,9 @@ const getNearestGL = (lat,long) => {
     return fakeAircraftList.acList.filter(item => parseInt(item.Lat) == parseInt(lat)
     && parseInt(item.Long) == parseInt(long))
 }
-
+const compareAlt = (a, b) => {
+    return b.Alt - a.Alt
+  }
 const getAvaliableFlites = (query) => {
   //  return axios.get("http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json?"
   //  + "")//"lat=33.433638&lng=-112.008113&fDstL=0&fDstU=100");
@@ -26,10 +28,11 @@ const getAvaliableFlites = (query) => {
                     
                     {
                         console.log(item.Id+  '$$'+item.Alt + '$$' +item.Call)
-                        return item.Id && item.Alt && item.Alt != 0 && item.Call && item.Call != ""
+                        return item.Id && (typeof item.Alt != 'undefined') && item.Alt != 0 && (typeof item.Call != 'undefined') && item.Call != "" 
+                        && (typeof item.Man != 'undefined') && (typeof item.Mdl != 'undefined') && (typeof item.To != 'undefined') && (typeof item.From != 'undefined')
                     }
-                    ).slice(1,10)
-                debugger
+                    ).sort(compareAlt).slice(1,10)
+                
             }
             resolve(altItems)
         }, 250);
